@@ -1,3 +1,3 @@
-import {bioType} from './aboutType'
+import { bioType } from './bio'
 
 export const schemaTypes = [bioType]

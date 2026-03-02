@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export const StyledHeader = styled.header`
-  // background: color-mix(in srgb, var(--background) 95%, transparent);
-  // backdrop-filter: blur(8px);
-`;
-
 export const StyledNav = styled.nav`
   margin-left: auto;
   background-color: transparent;
@@ -27,7 +22,7 @@ export const StyledNav = styled.nav`
 
 export const LogoLink = styled(Link)<{ $isHome?: boolean }>`
   font-family: var(--font-display), serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
   letter-spacing: -0.025em;
   color: ${(props) =>

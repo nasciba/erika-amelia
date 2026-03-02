@@ -17,6 +17,7 @@ export const BioLayout = styled.div`
 export const BioImageWrap = styled.div`
   flex-shrink: 0;
   width: 100%;
+  padding-top: 8px;
   @media (min-width: 768px) {
     width: 40%;
     max-width: 24rem;
@@ -50,6 +51,7 @@ export const BioDescription = styled.div`
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.625;
+  text-align: justify;
   color: var(--foreground);
 `;
 

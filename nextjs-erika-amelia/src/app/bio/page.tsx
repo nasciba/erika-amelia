@@ -9,6 +9,9 @@ import {
   BioDescription,
 } from "../components/styled/BioStyles";
 
+const BIO_PAGE_TITLE = "Sobre";
+const BIO_IMAGE_ALT = "Erika Amelia - foto de perfil";
+
 export default async function BioPage() {
   const bio = await getBio();
   if (!bio) notFound();
@@ -19,24 +22,24 @@ export default async function BioPage() {
       : null;
 
   return (
-    <BioLayout>
-      {imageUrl ? (
-        <BioImageWrap>
-          <Image
-            src={imageUrl}
-            alt="Erika Amelia"
-            width={800}
-            height={1000}
-            style={{ width: "100%", height: "auto" }}
-          />
-        </BioImageWrap>
-      ) : null}
-      <BioContent>
-        <BioTitle>Sobre</BioTitle>
-        <BioDescription>
-          {bio.description ?? ""}
-        </BioDescription>
-      </BioContent>
-    </BioLayout>
+    <>
+      <BioTitle>{BIO_PAGE_TITLE}</BioTitle>
+      <BioLayout>
+        {imageUrl ? (
+          <BioImageWrap>
+            <Image
+              src={imageUrl}
+              alt={BIO_IMAGE_ALT}
+              width={800}
+              height={1000}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </BioImageWrap>
+        ) : null}
+        <BioContent>
+          <BioDescription>{bio.description ?? ""}</BioDescription>
+        </BioContent>
+      </BioLayout>
+    </>
   );
 }
