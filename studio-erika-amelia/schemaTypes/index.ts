@@ -1,1 +1,3 @@
-export const schemaTypes = []
+import {bioType} from './aboutType'
+
+export const schemaTypes = [bioType]
