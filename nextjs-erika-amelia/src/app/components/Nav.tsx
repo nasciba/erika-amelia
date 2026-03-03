@@ -33,7 +33,7 @@ const Nav = () => {
             <NavLink
               href={href}
               $isHome={isHome}
-              $isActive={pathname === href}
+              $isActive={pathname.includes(href)}
             >
               {label}
             </NavLink>
