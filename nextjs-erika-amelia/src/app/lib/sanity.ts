@@ -39,19 +39,7 @@ export interface ContactContent {
   other?: string | null;
 }
 
-export async function getContact(): Promise<ContactContent | null> {
-  if (!projectId) {
-    return {
-      email: "artist@example.com",
-      instagram: "@artist",
-      other: null,
-    };
-  }
-  const data = await client.fetch<ContactContent | null>(
-    `*[_type == "contact"][0]{ email, instagram, other }`
-  );
-  return data ?? { email: null, instagram: null, other: null };
-}
+
 
 export interface SanityImage {
   _type: "image";

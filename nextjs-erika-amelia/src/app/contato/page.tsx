@@ -1,56 +1,27 @@
-import { getContact } from "../lib/sanity";
-import { notFound } from "next/navigation";
-import {
-  ArticleWrap,
-  ArticleTitle,
-  ArticleBody,
-  ContactBlock,
-  ContactLabel,
-  ContactLink,
-  ContactProse,
-} from "../components/styled/ArticleStyles";
+import { EmailIcon, InstagramIcon } from "../components/icons/ContactIcons";
+import { ContactBlock, ContactLink } from "../components/styled/ContactStyles";
 
 export default async function ContactPage() {
-  const data = await getContact();
-  if (!data) notFound();
-  const contact = data;
-
-  const instagramHref = contact.instagram
-    ? contact.instagram.startsWith("http")
-      ? contact.instagram
-      : `https://instagram.com/${contact.instagram.replace(/^@/, "")}`
-    : "";
+  const instagramHref = "https://instagram.com/cameliacomvaidade";
 
   return (
-    <ArticleWrap>
-      <ArticleTitle>Contato</ArticleTitle>
-      <ArticleBody>
-        <ContactBlock>
-          {contact.email && (
-            <p>
-              <ContactLabel>Email:</ContactLabel>{" "}
-              <ContactLink href={`mailto:${contact.email}`}>
-                {contact.email}
-              </ContactLink>
-            </p>
-          )}
-          {contact.instagram && (
-            <p>
-              <ContactLabel>Instagram:</ContactLabel>{" "}
-              <ContactLink
-                href={instagramHref}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {contact.instagram}
-              </ContactLink>
-            </p>
-          )}
-          {contact.other && (
-            <ContactProse>{contact.other}</ContactProse>
-          )}
-        </ContactBlock>
-      </ArticleBody>
-    </ArticleWrap>
+    <ContactBlock>
+      <p>
+        <EmailIcon />
+        <ContactLink href="mailto:erikaamelia@gmail.com">
+          erikaamelia@gmail.com
+        </ContactLink>
+      </p>
+      <p>
+        <InstagramIcon />
+        <ContactLink
+          href={instagramHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @cameliacomvaidade
+        </ContactLink>
+      </p>
+    </ContactBlock>
   );
 }
