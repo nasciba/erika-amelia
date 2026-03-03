@@ -18,7 +18,7 @@ const links = [
 
 const LOGO_TEXT = "Erika Amelia";
 
-export function Nav() {
+const Nav = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -43,3 +43,5 @@ export function Nav() {
     </StyledNav>
   );
 }
+
+export default Nav;

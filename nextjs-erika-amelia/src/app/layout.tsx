@@ -4,7 +4,7 @@ import { Crimson_Pro, Work_Sans } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
 import { MainContainer } from "./components/styled/LayoutStyles";
-import { Nav } from "./components/Nav";
+import  Nav  from "./components/Nav";
 
 const display = Crimson_Pro({
   variable: "--font-display",
