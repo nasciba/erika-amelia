@@ -52,3 +52,65 @@ export async function getContact(): Promise<ContactContent | null> {
   );
   return data ?? { email: null, instagram: null, other: null };
 }
+
+export interface SanityImage {
+  _type: "image";
+  asset?: { _ref: string };
+}
+
+export interface ObraImagem {
+  titulo?: string | null;
+  imagem?: SanityImage | null;
+  tecnica?: string | null;
+  ano?: number | null;
+  dimensoes?: string | null;
+}
+
+export interface Obra {
+  nome?: string | null;
+  descricao?: string | null;
+  fotoDeCapa?: SanityImage | null;
+  imagens?: ObraImagem[] | null;
+}
+
+export interface Linguagens {
+  _id: string;
+  nome?: string | null;
+  obras?: Obra[] | null;
+}
+
+const linguagensProjection = `{
+  _id,
+  nome,
+  obras[]{
+    nome,
+    descricao,
+    "fotoDeCapa": fotoDeCapa,
+    imagens[]{
+      titulo,
+      "imagem": imagem,
+      tecnica,
+      ano,
+      dimensoes
+    }
+  }
+}`;
+
+export async function getLinguagens(): Promise<Linguagens[]> {
+  if (!projectId) return [];
+  const data = await client.fetch<Linguagens[]>(
+    `*[_type == "linguagens"]${linguagensProjection}`
+  );
+  return data ?? [];
+}
+
+export async function getLinguagemById(
+  linguagemId: string
+): Promise<Linguagens | null> {
+  if (!projectId) return null;
+  const data = await client.fetch<Linguagens | null>(
+    `*[_type == "linguagens" && _id == $linguagemId][0]${linguagensProjection}`,
+    { linguagemId }
+  );
+  return data;
+}
