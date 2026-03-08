@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getLinguagens, urlFor } from "../lib/sanity";
 import {
-  ObrasPageTitle,
   ObrasGrid,
   ObraCardLink,
   ObraCardImageWrap,
@@ -13,35 +12,32 @@ export default async function ObrasPage() {
 
   return (
     <div>
-      <ObrasPageTitle>Obras</ObrasPageTitle>
       {linguagens?.length === 0 ? (
-        <p>Nenhuma linguagem ou obra cadastrada.</p>
+        <p>Nenhuma linguagem cadastrada.</p>
       ) : (
         <ObrasGrid as="div">
-          {linguagens?.map((linguagem) =>
-            (linguagem.obras ?? []).map((obra, obraIndex) => {
-              const coverUrl =
-                obra.fotoDeCapa?.asset &&
-                urlFor(obra.fotoDeCapa).width(400).height(300).url();
-              const href = `/obras/${encodeURIComponent(linguagem._id)}/${obraIndex}`;
-              return (
-                <ObraCardLink key={`${linguagem._id}-${obraIndex}`} href={href}>
-                  <ObraCardImageWrap>
-                    {coverUrl ? (
-                      <Image
-                        src={coverUrl}
-                        alt={obra.nome ?? "Obra"}
-                        fill
-                        sizes="(max-width: 640px) 50vw, 200px"
-                        style={{ objectFit: "cover" }}
-                      />
-                    ) : null}
-                  </ObraCardImageWrap>
-                  <ObraCardTitle>{obra.nome ?? "Sem nome"}</ObraCardTitle>
-                </ObraCardLink>
-              );
-            })
-          )}
+          {linguagens?.map((linguagem) => {
+            const coverUrl =
+              linguagem.fotoDeCapa?.asset &&
+              urlFor(linguagem.fotoDeCapa).width(400).height(300).url();
+            const href = `/obras/${encodeURIComponent(linguagem._id)}`;
+            return (
+              <ObraCardLink key={linguagem._id} href={href}>
+                <ObraCardImageWrap>
+                  {coverUrl ? (
+                    <Image
+                      src={coverUrl}
+                      alt={linguagem.nome ?? "Linguagem"}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 200px"
+                      style={{ objectFit: "cover" }}
+                    />
+                  ) : null}
+                </ObraCardImageWrap>
+                <ObraCardTitle>{linguagem.nome ?? "Sem nome"}</ObraCardTitle>
+              </ObraCardLink>
+            );
+          })}
         </ObrasGrid>
       )}
     </div>

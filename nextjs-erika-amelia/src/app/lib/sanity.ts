@@ -64,12 +64,14 @@ export interface Obra {
 export interface Linguagens {
   _id: string;
   nome?: string | null;
+  fotoDeCapa?: SanityImage | null;
   obras?: Obra[] | null;
 }
 
 const linguagensProjection = `{
   _id,
   nome,
+  "fotoDeCapa": fotoDeCapa,
   obras[]{
     nome,
     descricao,

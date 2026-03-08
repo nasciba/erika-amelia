@@ -73,6 +73,11 @@ export const linguagensType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'fotoDeCapa',
+      title: 'Foto de Capa',
+      type: 'image',
+    }),
+    defineField({
       name: 'obras',
       title: 'Obras',
       type: 'array',

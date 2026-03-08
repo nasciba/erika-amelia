@@ -13,6 +13,7 @@
     "@sanity/image-url": "^2.0.3",
     "next": "16.1.6",
     "next-sanity": "^12.0.17",
+    "resend": "^4.0.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "styled-components": "^6.3.8"

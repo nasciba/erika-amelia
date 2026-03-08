@@ -10,7 +10,6 @@ import {
   ObraDetailWrap,
   ObraDetailTitle,
   ObraDetailDescription,
-  ObraImagesSectionTitle,
   ObrasGrid,
   ObraCardLink,
   ObraCardImageWrap,
@@ -42,7 +41,6 @@ export default async function ObraDetailPage({ params }: PageProps) {
       )}
       {imagens.length > 0 && (
         <>
-          <ObraImagesSectionTitle>Imagens</ObraImagesSectionTitle>
           <ObrasGrid as="div">
             {imagens.map((img: ObraImagem, imageIndex: number) => {
               const imgUrl =

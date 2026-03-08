@@ -36,16 +36,18 @@ export const ObraCardLink = styled(Link)`
   overflow: hidden;
   background: var(--background);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
+  // &:hover {
+  //   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  // }
 `;
 
 export const ObraCardImageWrap = styled.div`
   position: relative;
   aspect-ratio: 4 / 3;
   background: color-mix(in srgb, var(--foreground) 10%, transparent);
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
 `;
 
 export const ObraCardTitle = styled.span`
@@ -84,12 +86,6 @@ export const ObraDetailDescription = styled.div`
   max-width: 42rem;
 `;
 
-export const ObraImagesSectionTitle = styled.h2`
-  font-family: var(--font-display), serif;
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0 0 1rem;
-`;
 
 export const ImageDetailWrap = styled.div`
   margin-left: auto;
