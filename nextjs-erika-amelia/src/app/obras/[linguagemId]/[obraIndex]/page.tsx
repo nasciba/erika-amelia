@@ -8,6 +8,9 @@ import {
 } from "../../../lib/sanity";
 import {
   ObraDetailWrap,
+  ObraBreadcrumb,
+  ObraBreadcrumbLink,
+  ObraBreadcrumbSep,
   ObraDetailTitle,
   ObraDetailDescription,
   ObrasGrid,
@@ -35,10 +38,14 @@ export default async function ObraDetailPage({ params }: PageProps) {
 
   return (
     <ObraDetailWrap>
-      <ObraDetailTitle>{obra.nome ?? "Obra"}</ObraDetailTitle>
-      {obra.descricao && (
-        <ObraDetailDescription>{obra.descricao}</ObraDetailDescription>
-      )}
+      <ObraBreadcrumb aria-label="Navegação">
+        <ObraBreadcrumbLink href={`/obras/${linguagemId}`}>
+          {linguagem.nome ?? "Linguagens"}
+        </ObraBreadcrumbLink>
+        <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
+        <span>{obra.nome ?? "Obra"}</span>
+      </ObraBreadcrumb>
+
       {imagens.length > 0 && (
         <>
           <ObrasGrid as="div">

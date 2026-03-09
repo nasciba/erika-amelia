@@ -19,15 +19,15 @@ const body = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Erika Amelia",
-  description: "Erika Amelia's personal website showcasing projects and portfolio.",
+  title: "Érika Amélia",
+  description: "Érika Amélia's personal website showcasing projects and portfolio.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
       <body>
         <StyledComponentsRegistry>
           <Nav />

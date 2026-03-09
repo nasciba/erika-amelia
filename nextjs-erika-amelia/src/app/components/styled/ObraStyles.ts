@@ -17,6 +17,7 @@ export const ObrasGrid = styled.div`
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   margin: 0;
+  margin-top: 1.5rem;
   padding: 0;
   list-style: none;
 `;
@@ -64,6 +65,26 @@ export const ObraDetailWrap = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 72rem;
+`;
+
+export const ObraBreadcrumb = styled.nav`
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  opacity: 0.9;
+`;
+
+export const ObraBreadcrumbLink = styled(Link)`
+  color: var(--foreground);
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+`;
+
+export const ObraBreadcrumbSep = styled.span`
+  margin: 0 0.5rem;
+  opacity: 0.7;
 `;
 
 export const ObraDetailTitle = styled.h1`

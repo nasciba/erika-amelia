@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getLinguagemById,
@@ -10,6 +9,9 @@ import {
   ImageDetailWrap,
   ImageDetailTitle,
   ImageDetailMeta,
+  ObraBreadcrumb,
+  ObraBreadcrumbLink,
+  ObraBreadcrumbSep,
 } from "../../../../components/styled/ObraStyles";
 
 interface PageProps {
@@ -49,23 +51,19 @@ export default async function ImageDetailPage({ params }: PageProps) {
     urlFor(img.imagem).width(1200).height(1200).url();
 
   const metaParts = [img.tecnica, img.ano, img.dimensoes].filter(Boolean);
-  const backHref = `/obras/${encodeURIComponent(linguagemId)}/${obraIndex}`;
+  const obraHref = `/obras/${encodeURIComponent(linguagemId)}/${obraIndex}`;
 
   return (
     <ImageDetailWrap>
-      <Link
-        href={backHref}
-        style={{
-          fontSize: "0.875rem",
-          color: "var(--foreground)",
-          opacity: 0.8,
-          textDecoration: "underline",
-          marginBottom: "1rem",
-          display: "inline-block",
-        }}
-      >
-        ← Voltar para {obra.nome ?? "obra"}
-      </Link>
+      <ObraBreadcrumb aria-label="Navegação" style={{ marginBottom: "1rem" }}>
+        <ObraBreadcrumbLink href="/obras">
+          {linguagem.nome ?? "Linguagens"}
+        </ObraBreadcrumbLink>
+        <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
+        <ObraBreadcrumbLink href={obraHref}>
+          {obra.nome ?? "Obra"}
+        </ObraBreadcrumbLink>
+      </ObraBreadcrumb>
       {imageUrl && (
         <div
           style={{

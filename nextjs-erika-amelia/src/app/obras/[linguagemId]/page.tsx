@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLinguagemById, urlFor } from "../../lib/sanity";
 import {
@@ -7,7 +6,9 @@ import {
   ObraCardLink,
   ObraCardImageWrap,
   ObraCardTitle,
-  ObrasPageTitle,
+  ObraBreadcrumb,
+  ObraBreadcrumbLink,
+  ObraBreadcrumbSep,
 } from "../../components/styled/ObraStyles";
 
 interface PageProps {
@@ -23,20 +24,11 @@ export default async function LinguagemPage({ params }: PageProps) {
 
   return (
     <div>
-      <Link
-        href="/obras"
-        style={{
-          display: "inline-block",
-          fontSize: "0.875rem",
-          color: "var(--foreground)",
-          opacity: 0.8,
-          textDecoration: "underline",
-          marginBottom: "1rem",
-        }}
-      >
-        ← Voltar para Obras
-      </Link>
-      <ObrasPageTitle>{linguagem.nome ?? "Linguagem"}</ObrasPageTitle>
+      <ObraBreadcrumb aria-label="Navegação" style={{ marginBottom: "1rem" }}>
+        <ObraBreadcrumbLink href="/obras">Obras</ObraBreadcrumbLink>
+        <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
+        <span>{linguagem.nome ?? "Linguagem"}</span>
+      </ObraBreadcrumb>
       {obras.length === 0 ? (
         <p>Nenhuma obra nesta linguagem.</p>
       ) : (
