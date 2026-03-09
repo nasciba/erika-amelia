@@ -36,7 +36,7 @@ export default async function LinguagemPage({ params }: PageProps) {
           {obras.map((obra, obraIndex) => {
             const coverUrl =
               obra.fotoDeCapa?.asset &&
-              urlFor(obra.fotoDeCapa).width(400).height(300).url();
+              urlFor(obra.fotoDeCapa).width(800).height(600).quality(90).url();
             const href = `/obras/${encodeURIComponent(linguagemId)}/${obraIndex}`;
             return (
               <ObraCardLink key={obraIndex} href={href}>

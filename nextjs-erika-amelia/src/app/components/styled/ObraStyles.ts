@@ -12,6 +12,12 @@ export const ObrasPageTitle = styled.h1`
   }
 `;
 
+export const Container = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+`;
+
 export const ObrasGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -20,6 +26,21 @@ export const ObrasGrid = styled.div`
   margin-top: 1.5rem;
   padding: 0;
   list-style: none;
+`;
+
+export const ObraCardImageWrap = styled.div`
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--background);
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
 `;
 
 export const ObraCardLink = styled(Link)`
@@ -36,18 +57,8 @@ export const ObraCardLink = styled(Link)`
   border-radius: 0;
   overflow: hidden;
   background: var(--background);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  // &:hover {
-  //   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  // }
-`;
-
-export const ObraCardImageWrap = styled.div`
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: color-mix(in srgb, var(--foreground) 10%, transparent);
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  &:hover ${ObraCardImageWrap}::after {
+    opacity: 1;
   }
 `;
 
@@ -64,7 +75,6 @@ export const ObraCardTitle = styled.span`
 export const ObraDetailWrap = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: 72rem;
 `;
 
 export const ObraBreadcrumb = styled.nav`
@@ -111,7 +121,82 @@ export const ObraDetailDescription = styled.div`
 export const ImageDetailWrap = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: 56rem;
+  width: 100%;
+`;
+
+export const ImageDetailViewer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 50vh;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ImageDetailArrowSlot = styled.div<{ $position: "left" | "right" }>`
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${(p) => (p.$position === "left" ? "left: 0.5rem;" : "right: 0.5rem;")}
+  @media (min-width: 640px) {
+    ${(p) => (p.$position === "left" ? "left: 1.5rem;" : "right: 1.5rem;")}
+  }
+`;
+
+export const ImageDetailImageWrap = styled.div`
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+`;
+
+
+export const ImageDetailNavLink = styled(Link)`
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--foreground) 12%, transparent);
+  color: var(--foreground);
+  text-decoration: none;
+  transition: background 0.15s ease, opacity 0.15s ease;
+  &:hover {
+    background: color-mix(in srgb, var(--foreground) 20%, transparent);
+  }
+  @media (min-width: 640px) {
+    width: 3rem;
+    height: 3rem;
+  }
+`;
+
+export const ImageDetailNavPlaceholder = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+  color: var(--foreground);
+  opacity: 0.4;
+  pointer-events: none;
+  @media (min-width: 640px) {
+    width: 3rem;
+    height: 3rem;
+  }
 `;
 
 export const ImageDetailTitle = styled.h1`

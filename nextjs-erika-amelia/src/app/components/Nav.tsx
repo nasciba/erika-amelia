@@ -16,7 +16,7 @@ const links = [
   { href: "/contato", label: "Contato" },
 ];
 
-const LOGO_TEXT = "Erika Amelia";
+const LOGO_TEXT = "Érika Amélia";
 
 const Nav = () => {
   const pathname = usePathname();

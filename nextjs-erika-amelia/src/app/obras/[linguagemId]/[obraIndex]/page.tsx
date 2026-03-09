@@ -39,6 +39,9 @@ export default async function ObraDetailPage({ params }: PageProps) {
   return (
     <ObraDetailWrap>
       <ObraBreadcrumb aria-label="Navegação">
+        <ObraBreadcrumbLink href="/obras">Obras</ObraBreadcrumbLink>
+        <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
+
         <ObraBreadcrumbLink href={`/obras/${linguagemId}`}>
           {linguagem.nome ?? "Linguagens"}
         </ObraBreadcrumbLink>
@@ -52,7 +55,7 @@ export default async function ObraDetailPage({ params }: PageProps) {
             {imagens.map((img: ObraImagem, imageIndex: number) => {
               const imgUrl =
                 img.imagem?.asset &&
-                urlFor(img.imagem).width(400).height(300).url();
+                urlFor(img.imagem).width(800).height(600).quality(90).url();
               const href = `/obras/${encodeURIComponent(linguagemId)}/${obraIndex}/${imageIndex}`;
               return (
                 <ObraCardLink

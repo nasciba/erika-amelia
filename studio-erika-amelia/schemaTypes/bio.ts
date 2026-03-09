@@ -7,7 +7,7 @@ export const bioType = defineType({
   fields: [
     defineField({
       name: 'description',
-      title: 'Sobre Erika Amelia',
+      title: 'Sobre Érika Amélia',
       type: 'text',
       rows: 8,
     }),

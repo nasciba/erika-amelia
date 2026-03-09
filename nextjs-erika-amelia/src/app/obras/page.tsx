@@ -19,7 +19,7 @@ export default async function ObrasPage() {
           {linguagens?.map((linguagem) => {
             const coverUrl =
               linguagem.fotoDeCapa?.asset &&
-              urlFor(linguagem.fotoDeCapa).width(400).height(300).url();
+              urlFor(linguagem.fotoDeCapa).width(800).height(600).quality(90).url();
             const href = `/obras/${encodeURIComponent(linguagem._id)}`;
             return (
               <ObraCardLink key={linguagem._id} href={href}>

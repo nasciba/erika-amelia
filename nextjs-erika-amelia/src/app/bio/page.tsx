@@ -18,7 +18,7 @@ export default async function BioPage() {
 
   const imageUrl =
     bio.image && bio.image.asset
-      ? urlFor(bio.image).width(800).height(1000).url()
+      ? urlFor(bio.image).width(1200).height(1500).quality(90).url()
       : null;
 
   return (
