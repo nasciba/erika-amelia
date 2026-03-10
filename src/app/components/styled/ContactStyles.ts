@@ -19,6 +19,12 @@ export const ContactBlockItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  @media (max-width: 700px) {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+  }
 `;
 
 export const ContactLabel = styled.span`
@@ -51,6 +57,9 @@ export const ContactProse = styled.div`
 
 export const ContactFormWrap = styled.div`
   width: 50%;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const ContactForm = styled.form`

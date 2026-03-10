@@ -4,9 +4,9 @@ import { ContactBlock, ContactBlockItem, ContactLink } from "../components/style
 
 const EMAIL = "erika.amelia@hotmail.com";
 const INSTAGRAM = "@cameliacomvaidade";
+const INSTAGRAM_REF = "https://instagram.com/cameliacomvaidade";
 
 export default async function ContactPage() {
-  const instagramHref = "https://instagram.com/cameliacomvaidade";
 
   return (
     <ContactBlock>
@@ -18,7 +18,7 @@ export default async function ContactPage() {
         <span>
           <InstagramIcon />
           <ContactLink
-            href={instagramHref}
+            href={INSTAGRAM_REF}
             target="_blank"
             rel="noopener noreferrer"
           >
