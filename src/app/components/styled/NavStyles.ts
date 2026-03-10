@@ -98,6 +98,7 @@ export const NavList = styled.ul<{ $isOpen?: boolean }>`
 
 export const NavItem = styled.li<{ $isHome?: boolean }>`
   padding-bottom: 8px;
+  letter-spacing: 2px;
   @media (max-width: 799px) {
     padding: 0.75rem 0;
     border-bottom: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);

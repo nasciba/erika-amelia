@@ -14,7 +14,7 @@ import {
 const links = [
   { href: "/obras", label: "Obras" },
   { href: "/bio", label: "Sobre" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Portfólio" },
   { href: "/contato", label: "Contato" },
 ];
 

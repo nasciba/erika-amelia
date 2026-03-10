@@ -33,7 +33,7 @@ export function ContactForm() {
           />
         </ContactField>
         <ContactField>
-          <ContactFieldLabel htmlFor="contact-email">Email</ContactFieldLabel>
+          <ContactFieldLabel htmlFor="contact-email">E-mail</ContactFieldLabel>
           <ContactFieldInput
             id="contact-email"
             name="email"
