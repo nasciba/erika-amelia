@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BioLayout = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: 72rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

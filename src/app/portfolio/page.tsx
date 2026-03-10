@@ -1,4 +1,5 @@
 import { getPortfolio, PortfolioContent } from "../lib/sanity";
+import { PortfolioLink } from "../components/styled/PortfolioStyles";
 
 export default async function PortfolioPage() {
   const portfolioData: PortfolioContent[] | null = await getPortfolio();
@@ -6,9 +7,9 @@ export default async function PortfolioPage() {
 
   return (
     <div>
-      <a href={documentUrl} download="Portfolio">
+      <PortfolioLink href={documentUrl} rel="noopener noreferrer" target="_blank">
         Portfolio
-      </a>
+      </PortfolioLink>
     </div>
   );
 }

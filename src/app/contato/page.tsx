@@ -1,32 +1,31 @@
 import { ContactForm } from "../components/ContactForm";
 import { EmailIcon, InstagramIcon } from "../components/icons/ContactIcons";
-import { ContactBlock, ContactLink } from "../components/styled/ContactStyles";
+import { ContactBlock, ContactBlockItem, ContactLink } from "../components/styled/ContactStyles";
 
 const EMAIL = "erika.amelia@hotmail.com";
+const INSTAGRAM = "@cameliacomvaidade";
 
 export default async function ContactPage() {
   const instagramHref = "https://instagram.com/cameliacomvaidade";
 
   return (
     <ContactBlock>
-      <div style={{ width: "30%" }}>
-        <p>
+      <ContactBlockItem>
+        <span>
           <EmailIcon />
-          <ContactLink href={`mailto:${EMAIL}`}>
-           {EMAIL}
-          </ContactLink>
-        </p>
-        <p>
+          <ContactLink href={`mailto:${EMAIL}`}>{EMAIL}</ContactLink>
+        </span>
+        <span>
           <InstagramIcon />
           <ContactLink
             href={instagramHref}
             target="_blank"
             rel="noopener noreferrer"
           >
-            @cameliacomvaidade
+            {INSTAGRAM}
           </ContactLink>
-        </p>
-      </div>
+        </span>
+      </ContactBlockItem>
       <ContactForm />
     </ContactBlock>
   );

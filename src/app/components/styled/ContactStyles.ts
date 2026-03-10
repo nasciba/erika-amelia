@@ -2,11 +2,23 @@ import styled from "styled-components";
 
 export const ContactBlock = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
+  flex-wrap: wrap;
   gap: 1.5rem;
   align-items: flex-start;
   width: 100%;
+  height: 100%;
   justify-content: space-between;
+`;
+
+export const ContactBlockItem = styled.div`
+  max-width: 40%;
+  height: 100%;
+  margin-right: 2rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const ContactLabel = styled.span`
