@@ -38,7 +38,9 @@ export const NavList = styled.ul`
   padding: 0;
 `;
 
-export const NavItem = styled.li``;
+export const NavItem = styled.li<{ $isHome?: boolean }>`
+  padding-bottom: 8px;
+`;
 
 export const NavLink = styled(Link)<{
   $isHome?: boolean;
@@ -46,8 +48,8 @@ export const NavLink = styled(Link)<{
 }>`
   position: relative;
   display: inline-block;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.075rem;
+  font-weight: 600;
   color: ${(props) =>
     props.$isHome
       ? "var(--background)"

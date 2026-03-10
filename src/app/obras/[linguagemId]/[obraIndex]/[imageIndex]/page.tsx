@@ -21,13 +21,33 @@ import {
 } from "../../../../components/styled/ObraStyles";
 
 const ChevronLeft = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
     <path d="m15 18-6-6 6-6" />
   </svg>
 );
 
 const ChevronRight = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
     <path d="m9 18 6-6-6-6" />
   </svg>
 );
@@ -42,14 +62,14 @@ interface PageProps {
 
 export default async function ImageDetailPage({ params }: PageProps) {
   const { linguagemId, obraIndex, imageIndex } = await params;
-  
+
   const linguagem = await getLinguagemById(decodeURIComponent(linguagemId));
-  
+
   if (!linguagem || !linguagem.obras?.length) notFound();
 
   const obraIdx = parseInt(obraIndex, 10);
   const imgIdx = parseInt(imageIndex, 10);
-  
+
   if (
     Number.isNaN(obraIdx) ||
     obraIdx < 0 ||
@@ -61,14 +81,15 @@ export default async function ImageDetailPage({ params }: PageProps) {
 
   const obra = linguagem.obras[obraIdx];
   const imagens = obra.imagens ?? [];
+
   if (imgIdx < 0 || imgIdx >= imagens.length) notFound();
 
   const img: ObraImagem = imagens[imgIdx];
   const imageUrl =
-    img.imagem?.asset &&
-    urlFor(img.imagem).width(2400).quality(95).url();
-
-  const metaParts = [img.tecnica, img.ano, img.dimensoes].filter(Boolean);
+    img.imagem?.asset && urlFor(img.imagem).width(2400).quality(95).url();
+  const metaParts = [img.titulo, img.tecnica, img.dimensoes, img.ano].filter(
+    Boolean,
+  );
   const obraHref = `/obras/${encodeURIComponent(linguagemId)}/${obraIndex}`;
   const prevIdx = imgIdx - 1;
   const nextIdx = imgIdx + 1;
@@ -85,9 +106,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
     <ImageDetailWrap>
       <ImageDetailKeyboardNav prevHref={prevHref} nextHref={nextHref} />
       <ObraBreadcrumb aria-label="Navegação" style={{ marginBottom: "1rem" }}>
-        <ObraBreadcrumbLink href="/obras">
-          Obras
-        </ObraBreadcrumbLink>
+        <ObraBreadcrumbLink href="/obras">Obras</ObraBreadcrumbLink>
         <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
         <ObraBreadcrumbLink href={`/obras/${linguagemId}`}>
           {linguagem.nome ?? "Linguagens"}
@@ -142,9 +161,10 @@ export default async function ImageDetailPage({ params }: PageProps) {
         </ImageDetailArrowSlot>
       </ImageDetailViewer>
       <ImageDetailTitle>{img.titulo ?? ""}</ImageDetailTitle>
-      {metaParts.length > 0 && (
-        <ImageDetailMeta>{metaParts.join(" · ")}</ImageDetailMeta>
-      )}
+      {metaParts?.length > 0 &&
+        metaParts.map((part) => (
+          <ImageDetailMeta key={part}>{part}</ImageDetailMeta>
+        ))}
     </ImageDetailWrap>
   );
 }

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const BackgroundImage = styled.div`
   background-image: url("/images/background.jpg");
   background-position: center;
-  background-size: stretch;
-  background-repeat: stretch;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   position: fixed;

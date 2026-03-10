@@ -75,7 +75,7 @@ export default async function ObraDetailPage({ params }: PageProps) {
                     ) : null}
                   </ObraCardImageWrap>
                   <ObraCardTitle>
-                    {img.titulo ?? `Imagem ${imageIndex + 1}`}
+                    {img.titulo ?? ""}
                   </ObraCardTitle>
                 </ObraCardLink>
               );
