@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BackgroundImage = styled.div`
-  background-image: url("/images/background.jpg");
+  background-image: url("/images/capa.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
