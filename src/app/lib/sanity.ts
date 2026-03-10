@@ -25,6 +25,10 @@ export interface BioContent {
   } | null;
 }
 
+export interface PortfolioContent {
+  portfolioUrl?: string | null;
+}
+
 export async function getBio(): Promise<BioContent | null> {
   if (!projectId) return null;
   const data = await client.fetch<BioContent | null>(
@@ -38,8 +42,6 @@ export interface ContactContent {
   instagram?: string | null;
   other?: string | null;
 }
-
-
 
 export interface SanityImage {
   _type: "image";
@@ -101,6 +103,14 @@ export async function getLinguagemById(
   const data = await client.fetch<Linguagens | null>(
     `*[_type == "linguagens" && _id == $linguagemId][0]${linguagensProjection}`,
     { linguagemId }
+  );
+  return data;
+}
+
+export async function getPortfolio(): Promise<PortfolioContent[] | null> {
+  if (!projectId) return null;
+  const data = await client.fetch<PortfolioContent[] | null>(
+    `*[_type == "portfolio"]{ "portfolioUrl": portfolio.asset->url }`
   );
   return data;
 }
