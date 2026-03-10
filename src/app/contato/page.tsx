@@ -2,6 +2,8 @@ import { ContactForm } from "../components/ContactForm";
 import { EmailIcon, InstagramIcon } from "../components/icons/ContactIcons";
 import { ContactBlock, ContactLink } from "../components/styled/ContactStyles";
 
+const EMAIL = "erika.amelia@hotmail.com";
+
 export default async function ContactPage() {
   const instagramHref = "https://instagram.com/cameliacomvaidade";
 
@@ -10,8 +12,8 @@ export default async function ContactPage() {
       <div style={{ width: "30%" }}>
         <p>
           <EmailIcon />
-          <ContactLink href="mailto:erikaamelia@gmail.com">
-            erikaamelia@gmail.com
+          <ContactLink href={`mailto:${EMAIL}`}>
+           {EMAIL}
           </ContactLink>
         </p>
         <p>
