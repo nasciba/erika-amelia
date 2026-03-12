@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description: "Érika Amélia's personal website showcasing projects and portfolio.",
 };
 
+export const dynamic = 'force-dynamic'
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

@@ -31,13 +31,22 @@ export const BioImage = styled.img`
 `;
 
 export const BioContent = styled.div`
-  flex: 1;
   min-width: 0;
+  width: 55%;
+`;
+
+export const BioContainer = styled.div`
+width: 90%;
+justify-content: center;
+margin-left: auto;
+margin-right: auto;
+
 `;
 
 export const BioTitle = styled.h1`
   font-family: var(--font-display), serif;
   font-size: 1.875rem;
+  width: 100%;
   font-weight: 500;
   letter-spacing: -0.025em;
   margin: 0 0 1.5rem;
