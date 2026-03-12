@@ -20,10 +20,10 @@ export const Container = styled.div`
 
 export const ObrasGrid = styled.div`
   display: grid;
+  margin-top: 1.5rem;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   margin: 0;
-  margin-top: 1.5rem;
   padding: 0;
   list-style: none;
 `;
@@ -79,7 +79,7 @@ export const ObraDetailWrap = styled.div`
 
 export const ObraBreadcrumb = styled.nav`
   font-size: 0.875rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: var(--foreground);
   opacity: 0.9;
 `;

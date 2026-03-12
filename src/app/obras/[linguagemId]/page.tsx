@@ -24,7 +24,7 @@ export default async function LinguagemPage({ params }: PageProps) {
 
   return (
     <div>
-      <ObraBreadcrumb aria-label="Navegação" style={{ marginBottom: "1rem" }}>
+      <ObraBreadcrumb aria-label="Navegação">
         <ObraBreadcrumbLink href="/obras">Obras</ObraBreadcrumbLink>
         <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
         <span>{linguagem.nome ?? "Linguagem"}</span>

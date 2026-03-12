@@ -12,7 +12,7 @@ export const ContactBlock = styled.div`
 `;
 
 export const ContactBlockItem = styled.div`
-  max-width: 40%;
+  max-width: 20%;
   height: 100%;
   margin-right: 2rem;
   padding-right: 1rem;
@@ -25,10 +25,6 @@ export const ContactBlockItem = styled.div`
     margin-right: 0;
     padding-right: 0;
   }
-`;
-
-export const ContactLabel = styled.span`
-  color: color-mix(in srgb, var(--foreground) 70%, transparent);
 `;
 
 export const ContactIconWrap = styled.span`
@@ -59,6 +55,9 @@ export const ContactFormWrap = styled.div`
   width: 50%;
   @media (max-width: 700px) {
     width: 100%;
+  }
+  @media (min-width: 1300px) {
+    width: 40%;
   }
 `;
 

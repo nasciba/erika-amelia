@@ -105,7 +105,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
   return (
     <ImageDetailWrap>
       <ImageDetailKeyboardNav prevHref={prevHref} nextHref={nextHref} />
-      <ObraBreadcrumb aria-label="Navegação" style={{ marginBottom: "1rem" }}>
+      <ObraBreadcrumb aria-label="Navegação">
         <ObraBreadcrumbLink href="/obras">Obras</ObraBreadcrumbLink>
         <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
         <ObraBreadcrumbLink href={`/obras/${linguagemId}`}>

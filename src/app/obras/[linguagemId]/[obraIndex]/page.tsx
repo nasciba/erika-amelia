@@ -11,12 +11,9 @@ import {
   ObraBreadcrumb,
   ObraBreadcrumbLink,
   ObraBreadcrumbSep,
-  ObraDetailTitle,
-  ObraDetailDescription,
   ObrasGrid,
   ObraCardLink,
   ObraCardImageWrap,
-  ObraCardTitle,
 } from "../../../components/styled/ObraStyles";
 
 interface PageProps {
@@ -74,9 +71,6 @@ export default async function ObraDetailPage({ params }: PageProps) {
                       />
                     ) : null}
                   </ObraCardImageWrap>
-                  <ObraCardTitle>
-                    {img.titulo ?? ""}
-                  </ObraCardTitle>
                 </ObraCardLink>
               );
             })}
