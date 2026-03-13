@@ -33,6 +33,9 @@ export const BioImage = styled.img`
 export const BioContent = styled.div`
   min-width: 0;
   width: 55%;
+  @media (max-width: 768px) {
+    width: 100%;
+  };
 `;
 
 export const BioContainer = styled.div`
