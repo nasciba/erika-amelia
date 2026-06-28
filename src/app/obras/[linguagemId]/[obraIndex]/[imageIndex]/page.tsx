@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ImageDetailKeyboardNav } from "../../../../components/ImageDetailKeyboardNav";
+import { ImageDetailKeyboardNav } from "../../../../_components/ImageDetailKeyboardNav";
 import {
   getLinguagemById,
   urlFor,
@@ -18,7 +18,7 @@ import {
   ObraBreadcrumb,
   ObraBreadcrumbLink,
   ObraBreadcrumbSep,
-} from "../../../../components/styled/ObraStyles";
+} from "../../../../_components/styled/ObraStyles";
 
 const ChevronLeft = () => (
   <svg

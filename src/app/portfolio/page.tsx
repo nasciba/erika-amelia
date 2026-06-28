@@ -1,5 +1,5 @@
 import { getPortfolio, PortfolioContent } from "../lib/sanity";
-import { PortfolioLink } from "../components/styled/PortfolioStyles";
+import { PortfolioLink } from "../_components/styled/PortfolioStyles";
 
 export default async function PortfolioPage() {
   const portfolioData: PortfolioContent[] | null = await getPortfolio();

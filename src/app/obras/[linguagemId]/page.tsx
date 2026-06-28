@@ -9,7 +9,7 @@ import {
   ObraBreadcrumb,
   ObraBreadcrumbLink,
   ObraBreadcrumbSep,
-} from "../../components/styled/ObraStyles";
+} from "../../_components/styled/ObraStyles";
 
 interface PageProps {
   params: Promise<{ linguagemId: string }>;
@@ -22,6 +22,12 @@ export default async function LinguagemPage({ params }: PageProps) {
 
   const obras = linguagem.obras ?? [];
 
+  const sortedObras = [...obras].sort((a, b) => {
+    const nameA = a.nome ?? "";
+    const nameB = b.nome ?? "";
+    return nameA.localeCompare(nameB);
+  })
+
   return (
     <div>
       <ObraBreadcrumb aria-label="Navegação">
@@ -29,11 +35,11 @@ export default async function LinguagemPage({ params }: PageProps) {
         <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
         <span>{linguagem.nome ?? "Linguagem"}</span>
       </ObraBreadcrumb>
-      {obras.length === 0 ? (
+      {sortedObras.length === 0 ? (
         <p>Nenhuma obra nesta linguagem.</p>
       ) : (
         <ObrasGrid as="div">
-          {obras.map((obra, obraIndex) => {
+          {sortedObras.map((obra, obraIndex) => {
             const coverUrl =
               obra.fotoDeCapa?.asset &&
               urlFor(obra.fotoDeCapa).width(800).height(600).quality(90).url();

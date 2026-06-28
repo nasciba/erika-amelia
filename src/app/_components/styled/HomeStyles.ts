@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const BackgroundImage = styled.div`
-  background-image: url("/images/capa.jpg");
+type BackgroundImageProps = {
+  $imageUrl: string;
+};
+
+export const BackgroundImage = styled.div<BackgroundImageProps>`
+  background-image: ${({ $imageUrl }) => `url(${$imageUrl})`};
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

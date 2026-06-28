@@ -114,3 +114,11 @@ export async function getPortfolio(): Promise<PortfolioContent[] | null> {
   );
   return data;
 }
+
+export async function getBackgroundImageUrl(): Promise<string | null> {
+  if (!projectId) return null;
+  const data = await client.fetch<{ backgroundImage?: string | null } | null>(
+    `*[_type == "backgroundImage"][0]{ "backgroundImage": image.asset->url }`
+  );
+  return data?.backgroundImage ?? null;
+}

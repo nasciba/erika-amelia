@@ -1,10 +1,11 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Crimson_Pro, Work_Sans } from "next/font/google";
+// @ts-ignore: Next.js global CSS side-effect import
 import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
-import { MainContainer } from "./components/styled/LayoutStyles";
-import  Nav  from "./components/Nav";
+import { MainContainer } from "./_components/styled/LayoutStyles";
+import  Nav  from "./_components/Nav";
 
 const display = Crimson_Pro({
   variable: "--font-display",

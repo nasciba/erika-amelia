@@ -14,7 +14,7 @@ import {
   ObrasGrid,
   ObraCardLink,
   ObraCardImageWrap,
-} from "../../../components/styled/ObraStyles";
+} from "../../../_components/styled/ObraStyles";
 
 interface PageProps {
   params: Promise<{ linguagemId: string; obraIndex: string }>;

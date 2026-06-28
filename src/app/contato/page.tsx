@@ -1,6 +1,6 @@
-import { ContactForm } from "../components/ContactForm";
-import { EmailIcon, InstagramIcon } from "../components/icons/ContactIcons";
-import { ContactBlock, ContactBlockItem, ContactLink } from "../components/styled/ContactStyles";
+import { ContactForm } from "../_components/ContactForm";
+import { EmailIcon, InstagramIcon } from "../_components/icons/ContactIcons";
+import { ContactBlock, ContactBlockItem, ContactLink } from "../_components/styled/ContactStyles";
 
 const EMAIL = "erika.amelia@hotmail.com";
 const INSTAGRAM = "@cameliacomvaidade";

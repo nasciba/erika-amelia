@@ -8,7 +8,7 @@ import {
   BioTitle,
   BioDescription,
   BioContainer,
-} from "../components/styled/BioStyles";
+} from "../_components/styled/BioStyles";
 
 const BIO_PAGE_TITLE = "Sobre";
 const BIO_IMAGE_ALT = "Erika Amelia - foto de perfil";

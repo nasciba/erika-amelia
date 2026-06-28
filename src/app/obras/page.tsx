@@ -5,18 +5,24 @@ import {
   ObraCardLink,
   ObraCardImageWrap,
   ObraCardTitle,
-} from "../components/styled/ObraStyles";
+} from "../_components/styled/ObraStyles";
 
 export default async function ObrasPage() {
   const linguagens = await getLinguagens();
 
+  const orderedLinguagens = linguagens.sort((a, b) => {
+    const nameA = a.nome ?? "";
+    const nameB = b.nome ?? "";
+    return nameA.localeCompare(nameB);
+  });
+
   return (
     <div>
-      {linguagens?.length === 0 ? (
+      {orderedLinguagens?.length === 0 ? (
         <p>Nenhuma linguagem cadastrada.</p>
       ) : (
         <ObrasGrid as="div">
-          {linguagens?.map((linguagem) => {
+          {orderedLinguagens?.map((linguagem) => {
             const coverUrl =
               linguagem.fotoDeCapa?.asset &&
               urlFor(linguagem.fotoDeCapa).width(800).height(600).quality(90).url();
