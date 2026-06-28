@@ -15,13 +15,12 @@ import {
   ImageDetailNavPlaceholder,
   ImageDetailTitle,
   ImageDetailMeta,
-  ObraBreadcrumb,
-  ObraBreadcrumbLink,
-  ObraBreadcrumbSep,
+
 } from "../../../../_components/styled/ObraStyles";
 import { ChevronLeft } from "@/app/_components/ChevronLeft";
 import { ChevronRight } from "@/app/_components/ChevronRight";
 import { FullBreadcrumbs } from "./_components/FullBreadcrumbs";
+
 interface PageProps {
   params: Promise<{
     linguagemId: string;
@@ -57,7 +56,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
   const img: ObraImagem = imagens[imgIdx];
   const imageUrl =
     img.imagem?.asset && urlFor(img.imagem).width(2400).quality(95).url();
-  
+
   const metaParts = [img.titulo, img.tecnica, img.dimensoes, img.ano].filter(
     Boolean,
   );
