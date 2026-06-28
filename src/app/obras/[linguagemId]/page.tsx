@@ -22,11 +22,6 @@ export default async function LinguagemPage({ params }: PageProps) {
 
   const obras = linguagem.obras ?? [];
 
-  const sortedObras = [...obras].sort((a, b) => {
-    const nameA = a.nome ?? "";
-    const nameB = b.nome ?? "";
-    return nameA.localeCompare(nameB);
-  })
 
   return (
     <div>
@@ -35,11 +30,11 @@ export default async function LinguagemPage({ params }: PageProps) {
         <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
         <span>{linguagem.nome ?? "Linguagem"}</span>
       </ObraBreadcrumb>
-      {sortedObras.length === 0 ? (
+      {obras.length === 0 ? (
         <p>Nenhuma obra nesta linguagem.</p>
       ) : (
         <ObrasGrid as="div">
-          {sortedObras.map((obra, obraIndex) => {
+          {obras.map((obra, obraIndex) => {
             const coverUrl =
               obra.fotoDeCapa?.asset &&
               urlFor(obra.fotoDeCapa).width(800).height(600).quality(90).url();
