@@ -11,6 +11,13 @@ export const client = createClient({
   useCdn: true,
 });
 
+const liveClient = createClient({
+  projectId,
+  dataset,
+  apiVersion: "2024-01-01",
+  useCdn: false,
+});
+
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source: Parameters<typeof builder.image>[0]) {
@@ -117,8 +124,15 @@ export async function getPortfolio(): Promise<PortfolioContent[] | null> {
 
 export async function getBackgroundImageUrl(): Promise<string | null> {
   if (!projectId) return null;
-  const data = await client.fetch<{ backgroundImage?: string | null } | null>(
-    `*[_type == "backgroundImage"][0]{ "backgroundImage": image.asset->url }`
+  const data = await liveClient.fetch<{
+    backgroundImage?: string | null;
+    updatedAt?: string | null;
+  } | null>(
+    `*[_type == "backgroundImage" && !(_id in path("drafts.**"))] | order(_updatedAt desc)[0]{ "backgroundImage": image.asset->url, "updatedAt": _updatedAt }`,
+    {},
+    { cache: "no-store" }
   );
-  return data?.backgroundImage ?? null;
+  if (!data?.backgroundImage) return null;
+  if (!data.updatedAt) return data.backgroundImage;
+  return `${data.backgroundImage}?v=${encodeURIComponent(data.updatedAt)}`;
 }
