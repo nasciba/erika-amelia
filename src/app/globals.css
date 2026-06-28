@@ -10,5 +10,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: Roboto, sans-serif, system-ui, sans-serif;
 }

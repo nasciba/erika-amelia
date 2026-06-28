@@ -47,7 +47,6 @@ margin-right: auto;
 `;
 
 export const BioTitle = styled.h1`
-  font-family: var(--font-display), serif;
   font-size: 1.875rem;
   width: 100%;
   font-weight: 500;
@@ -59,7 +58,6 @@ export const BioTitle = styled.h1`
 `;
 
 export const BioDescription = styled.div`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.625;
   text-align: justify;

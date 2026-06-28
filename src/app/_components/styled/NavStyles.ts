@@ -23,7 +23,6 @@ export const StyledNav = styled.nav`
 `;
 
 export const LogoLink = styled(Link)<{ $isHome?: boolean }>`
-  font-family: var(--font-display), serif;
   font-size: 3rem;
   font-weight: 500;
   letter-spacing: -0.025em;

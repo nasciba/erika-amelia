@@ -65,9 +65,8 @@ export const ObraCardLink = styled(Link)`
 export const ObraCardTitle = styled.span`
   display: block;
   text-align: center;
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.75rem 1rem;
   line-height: 1.3;
 `;
@@ -109,7 +108,6 @@ export const ObraDetailTitle = styled.h1`
 `;
 
 export const ObraDetailDescription = styled.div`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.625;
   color: var(--foreground);
@@ -208,7 +206,6 @@ export const ImageDetailTitle = styled.h1`
 `;
 
 export const ImageDetailMeta = styled.p`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 0.9375rem;
   color: color-mix(in srgb, var(--foreground) 75%, transparent);
   margin: 0;

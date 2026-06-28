@@ -74,14 +74,12 @@ export const ContactField = styled.div`
 `;
 
 export const ContactFieldLabel = styled.label`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--foreground);
 `;
 
 export const ContactFieldInput = styled.input`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1rem;
   padding: 0.5rem 0.75rem;
   border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
@@ -98,7 +96,6 @@ export const ContactFieldInput = styled.input`
 `;
 
 export const ContactFieldTextarea = styled.textarea`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1rem;
   padding: 0.5rem 0.75rem;
   border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
@@ -117,7 +114,6 @@ export const ContactFieldTextarea = styled.textarea`
 `;
 
 export const ContactSubmit = styled.button`
-  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   padding: 0.625rem 1.25rem;
