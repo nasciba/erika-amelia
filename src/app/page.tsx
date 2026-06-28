@@ -2,11 +2,15 @@ import {
   SectionsWrap,
   PageSection,
   BackgroundImage,
-} from "./components/styled/HomeStyles";
+} from "./_components/styled/HomeStyles";
+import { getBackgroundImageUrl } from "./lib/sanity";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const backgroundImage = await getBackgroundImageUrl()
+  const backgroundImageUrl = backgroundImage ?? backgroundImage ?? "/images/capa.jpg";
+  
   return (
-    <BackgroundImage>
+    <BackgroundImage $imageUrl={backgroundImageUrl}>
       <SectionsWrap>
         <PageSection />
       </SectionsWrap>
