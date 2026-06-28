@@ -19,39 +19,9 @@ import {
   ObraBreadcrumbLink,
   ObraBreadcrumbSep,
 } from "../../../../_components/styled/ObraStyles";
-
-const ChevronLeft = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-  >
-    <path d="m15 18-6-6 6-6" />
-  </svg>
-);
-
-const ChevronRight = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-  >
-    <path d="m9 18 6-6-6-6" />
-  </svg>
-);
-
+import { ChevronLeft } from "@/app/_components/ChevronLeft";
+import { ChevronRight } from "@/app/_components/ChevronRight";
+import { FullBreadcrumbs } from "./_components/FullBreadcrumbs";
 interface PageProps {
   params: Promise<{
     linguagemId: string;
@@ -87,6 +57,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
   const img: ObraImagem = imagens[imgIdx];
   const imageUrl =
     img.imagem?.asset && urlFor(img.imagem).width(2400).quality(95).url();
+  
   const metaParts = [img.titulo, img.tecnica, img.dimensoes, img.ano].filter(
     Boolean,
   );
@@ -105,17 +76,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
   return (
     <ImageDetailWrap>
       <ImageDetailKeyboardNav prevHref={prevHref} nextHref={nextHref} />
-      <ObraBreadcrumb aria-label="Navegação">
-        <ObraBreadcrumbLink href="/obras">Obras</ObraBreadcrumbLink>
-        <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
-        <ObraBreadcrumbLink href={`/obras/${linguagemId}`}>
-          {linguagem.nome ?? "Linguagens"}
-        </ObraBreadcrumbLink>
-        <ObraBreadcrumbSep aria-hidden>/</ObraBreadcrumbSep>
-        <ObraBreadcrumbLink href={obraHref}>
-          {obra.nome ?? "Obra"}
-        </ObraBreadcrumbLink>
-      </ObraBreadcrumb>
+      <FullBreadcrumbs linguagem={linguagem} linguagemId={linguagemId} obraHref={obraHref} obra={obra} />
       <ImageDetailViewer as="nav" aria-label="Navegar entre imagens">
         <ImageDetailArrowSlot $position="left">
           {prevHref ? (
