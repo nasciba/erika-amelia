@@ -5,7 +5,8 @@ import { Crimson_Pro, Work_Sans } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
 import { MainContainer } from "./_components/styled/LayoutStyles";
-import  Nav  from "./_components/Nav";
+import Nav from "./_components/Nav";
+import { siteUrl } from "./lib/site";
 
 const display = Crimson_Pro({
   variable: "--font-display",
@@ -21,10 +22,45 @@ const body = Work_Sans({
 
 export const metadata: Metadata = {
   title: "Érika Amélia",
-  description: "Érika Amélia's personal website showcasing projects and portfolio.",
+  description:
+    "Site oficial de Érika Amélia, artista visual. Conheça suas obras, biografia e portfólio.",
+  metadataBase: siteUrl,
+  keywords: [
+    "Érika Amélia",
+    "Erika Amelia",
+    "artista visual",
+    "arte",
+    "obras",
+    "guignard",
+    "escola guignard",
+    "uemg",
+    "escultura",
+    "feminismo e arte",
+    "arte contemporânea",
+    "arte brasileira",
+    "artista brasileira",
+  ],
+  authors: [{ name: "Érika Amélia" }],
+  creator: "Érika Amélia",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    title: "Érika Amélia",
+    description:
+      "Site oficial de Érika Amélia, artista visual. Conheça suas obras, biografia e portfólio.",
+    siteName: "Érika Amélia",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 export default function RootLayout({
   children,
